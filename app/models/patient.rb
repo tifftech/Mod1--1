@@ -1,5 +1,3 @@
-require 'pry'
-require '/models/patient.rb'
 
 class Patient
     attr_accessor :name, :age
@@ -21,7 +19,7 @@ class Patient
         increase_impatience += 1 
     end
 
-
+    private
     def self.increase_impatience
         @impatience += 1
     end
@@ -29,4 +27,3 @@ class Patient
 
 end
 
-#I still recieve a traceback error while running, I'm wondering if it's the terminal on my end?
