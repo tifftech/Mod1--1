@@ -16,7 +16,7 @@ class Doctor
     def self.greet(name)
         puts "Welcome, #{name}! how can I help you?" 
     end
-    binding.pry
+    # binding.pry
 
     def self.find_by_specialty(specialty_types)
         Doctor.all.filter do |doctor|
