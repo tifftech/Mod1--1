@@ -1,5 +1,3 @@
-require 'pry'
-require './models/patient.rb'
 
 class Doctor
     attr_accessor :name, :years
@@ -10,13 +8,12 @@ class Doctor
         @name = name
         @specialty = specialty
         @years = years
-        @all << self
+        @@all << self
     end
 
     def self.greet(name)
         puts "Welcome, #{name}! how can I help you?" 
     end
-    # binding.pry
 
     def self.find_by_specialty(specialty_types)
         Doctor.all.filter do |doctor|
@@ -24,10 +21,19 @@ class Doctor
         end
     end
 
+    def patients
+        Patient.all.select do |patient|
+            patient.doctor == self
+        end
+    end
+
+    # def discharge_patient(patient_name)
+    #     patient_name == self
+    #     end
+    # end
+
+
     def self.all
         @@all
     end
 end
-
-#I tried running my code but I keep getting a traceback error?
-

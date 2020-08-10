@@ -1,5 +1,6 @@
 
 class Patient
+    attr_reader :impatience
     attr_accessor :name, :age
     @@all = []
 
@@ -7,20 +8,20 @@ class Patient
         @name = name
         @age = age
         @impatience = 0
-        @all << self
+        @@all << self
     end
     
-    def self.all #was on a zoom call with Alicia and she says I should use self.all
-        @all
+    def self.all 
+        @@all
     end
 
-    def self.inquire_appt_ready
+    def inquire_appt_ready
         puts "The doctor should be ready soon."
-        increase_impatience += 1 
+        increase_impatience  
     end
 
     private
-    def self.increase_impatience
+    def increase_impatience
         @impatience += 1
     end
     
